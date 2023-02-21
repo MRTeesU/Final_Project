@@ -2,8 +2,8 @@ import os
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
-#from tensorflow.keras import layers
-#from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow import layers
+from tensorflow import ImageDataGenerator
 
 # Define the directories for the training and validation datasets
 train_dir = "path/to/training/dataset"
@@ -22,7 +22,7 @@ train_datagen = keras.ImageDataGenerator(
     fill_mode='nearest')  # Fill in missing pixels with nearby pixels
 
 # These options are applied to the validation dataset, but no data augmentation is performed
-validation_datagen = keras.ImageDataGenerator(rescale=1./255)
+validation_datagen = ImageDataGenerator(rescale=1./255)
 
 # Define the batch size and image dimensions
 batch_size = 32
