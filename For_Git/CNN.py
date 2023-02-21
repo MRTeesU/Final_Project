@@ -2,8 +2,8 @@ import os
 import numpy as np
 import tensorflow as tf
 from tensorflow import keras
-from tensorflow.keras import layers
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
+#from tensorflow.keras import layers
+#from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 # Define the directories for the training and validation datasets
 train_dir = "path/to/training/dataset"
