@@ -11,7 +11,7 @@ validation_dir = "path/to/validation/dataset"
 
 # Define some image preprocessing options
 # These are applied to the training dataset
-train_datagen = ImageDataGenerator(
+train_datagen = keras.ImageDataGenerator(
     rescale=1./255,  # Rescale pixel values to be between 0 and 1
     rotation_range=40,  # Rotate images randomly up to 40 degrees
     width_shift_range=0.2,  # Shift images horizontally up to 20%
@@ -22,7 +22,7 @@ train_datagen = ImageDataGenerator(
     fill_mode='nearest')  # Fill in missing pixels with nearby pixels
 
 # These options are applied to the validation dataset, but no data augmentation is performed
-validation_datagen = ImageDataGenerator(rescale=1./255)
+validation_datagen = keras.ImageDataGenerator(rescale=1./255)
 
 # Define the batch size and image dimensions
 batch_size = 32
@@ -45,17 +45,17 @@ validation_data = validation_datagen.flow_from_directory(
 
 # Define the neural network architecture
 model = keras.Sequential([
-    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(img_height, img_width, 3)),
-    layers.MaxPooling2D((2, 2)),
-    layers.Conv2D(64, (3, 3), activation='relu'),
-    layers.MaxPooling2D((2, 2)),
-    layers.Conv2D(128, (3, 3), activation='relu'),
-    layers.MaxPooling2D((2, 2)),
-    layers.Conv2D(128, (3, 3), activation='relu'),
-    layers.MaxPooling2D((2, 2)),
-    layers.Flatten(),
-    layers.Dense(512, activation='relu'),
-    layers.Dense(1, activation='sigmoid')
+    keras.layers.Conv2D(32, (3, 3), activation='relu', input_shape=(img_height, img_width, 3)),
+    keras.layers.MaxPooling2D((2, 2)),
+    keras.layers.Conv2D(64, (3, 3), activation='relu'),
+    keras.layers.MaxPooling2D((2, 2)),
+    keras.layers.Conv2D(128, (3, 3), activation='relu'),
+    keras.layers.MaxPooling2D((2, 2)),
+    keras.layers.Conv2D(128, (3, 3), activation='relu'),
+    keras.layers.MaxPooling2D((2, 2)),
+    keras.layers.Flatten(),
+    keras.layers.Dense(512, activation='relu'),
+    keras.layers.Dense(1, activation='sigmoid')
 ])
 
 # Compile the model with an appropriate loss function and optimizer
