@@ -7,9 +7,16 @@ from tensorflow import ImageDataGenerator
 from keras import layers
 #from keras import ImageDataGenerator
 
+
 # Define the directories for the training and validation datasets
-train_dir = "Datasets/images"
-validation_dir = "path/to/validation/dataset"
+#train_dir = "Datasets/images"
+#validation_dir = "path/to/validation/dataset"
+
+(train_images, train_labels), (test_images, test_labels) = keras.datasets.cifar10.load_data()
+
+# Normalize pixel values to be between 0 and 1
+train_images = train_images / 255.0
+test_images = test_images / 255.0
 
 # Define some image preprocessing options
 # These are applied to the training dataset
